@@ -120,9 +120,7 @@ function dropEye(e) {
     const pixel = ctx.getImageData(scaledX, scaledY, 1, 1);
     const [r,g,b] = pixel.data;
 
-    console.log(r,g,b);
-
-    setColor(c=`rgb(${r}, ${g}, ${b})`);
+    setColor(c='#' + (1 << 24 | r << 16 | g << 8 | b).toString(16).slice(1).toUpperCase());
 }
 
 function selectTool(tool) {
@@ -162,7 +160,7 @@ function setFont() {
 }
 
 function setColor(c=color.value) {
-    color.value = c
+    color.value = c;
     ctx.strokeStyle = c;
     document.getElementById('color-label').style.backgroundColor = c;
 }
