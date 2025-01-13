@@ -15,11 +15,11 @@ A JavaScript-based drawing application that allows users to create drawings on a
 - Adjust the brush size and color using the sliders and color picker.
 2. Erase:
 - Select the eraser tool to remove parts of your drawing.
-- Fill Areas:
+3. Fill Areas:
 - Choose the fill tool and click on an area to fill it with the current color.
-3. Pick Colors:
+4. Pick Colors:
 - Activate the eyedropper tool and click anywhere on the canvas to set the selected color as the active color.
-4. Reset Canvas:
+5. Reset Canvas:
 - Click the reset button to clear the canvas.
-4. Save Your Work:
+6. Save Your Work:
 - Use the save button to export your drawing as a PNG file.
