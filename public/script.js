@@ -138,8 +138,12 @@ function erase() {
 }
 
 function resetBtn() {
-    reset();
-    ctx.strokeStyle = color.value;
+    setFont();
+    setColor();
+
+    ctx.lineCap = 'round';
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function saveFile() {
