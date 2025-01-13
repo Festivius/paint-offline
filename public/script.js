@@ -39,8 +39,15 @@ function startBrush(e) {
     if (mode === 'fill') {
         fill(e);
     } else if (mode === 'brush' || mode === 'eraser') {
+        const dpr = (window.devicePixelRatio || 1) / 2;
+
+        ctx.beginPath();
+        ctx.arc(e.offsetX * dpr, e.offsetY * dpr, brushSize/10000000000, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+
         mode = 'brushing';
-        [prevX, prevY] = [e.offsetX, e.offsetY];
+        [prevX, prevY] = [e.offsetX * dpr, e.offsetY * dpr];
     } else if (mode === 'eyedropper') {
         dropEye(e);
     }
@@ -49,12 +56,14 @@ function startBrush(e) {
 function moveBrush(e) {
     if (!(mode === 'brushing')) return;
 
+    const dpr = (window.devicePixelRatio || 1) / 2;
+
     ctx.beginPath();
     ctx.moveTo(prevX, prevY);
-    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.lineTo(e.offsetX * dpr, e.offsetY * dpr);
     ctx.stroke();
 
-    [prevX, prevY] = [e.offsetX, e.offsetY];
+    [prevX, prevY] = [e.offsetX * dpr, e.offsetY * dpr];
 }
 
 function endBrush() {
